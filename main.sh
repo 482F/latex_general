@@ -19,6 +19,11 @@ install(){
     return 0
 }
 
+init(){
+    cp "${SCRIPT_DIR}/template.tex" "./main.tex"
+    return 0
+}
+
 compile(){
     TARGET_NAME="${1%.*}"
 
