@@ -2,9 +2,9 @@
 
 set -ue -o pipefail
 
-SCRIPT_PATH=$(readlink "${0}" || (echo $(cd $(dirname "${0}"); pwd)/$(basename "${0}")))
-SCRIPT_DIR=$(dirname "${SCRIPT_PATH}")
-SCRIPT_NAME=$(basename "${SCRIPT_PATH}")
+readonly SCRIPT_PATH=$(readlink "${0}" || (echo $(cd $(dirname "${0}"); pwd)/$(basename "${0}")))
+readonly SCRIPT_DIR=$(dirname "${SCRIPT_PATH}")
+readonly SCRIPT_NAME=$(basename "${SCRIPT_PATH}")
 
 usage(){
     echo "mytex subcommand"
@@ -25,18 +25,18 @@ init(){
 }
 
 compile(){
-    TARGET_NAME="${1%.*}"
+    local _target_name="${1%.*}"
 
-    platex "${TARGET_NAME}.tex"
-    dvipdfmx "${TARGET_NAME}.dvi"
+    platex "${_target_name}.tex"
+    dvipdfmx "${_target_name}.dvi"
 
-    rm "./${TARGET_NAME}.aux"
-    rm "./${TARGET_NAME}.dvi"
-    rm "./${TARGET_NAME}.log"
+    rm "./${_target_name}.aux"
+    rm "./${_target_name}.dvi"
+    rm "./${_target_name}.log"
     return 0
 }
 
-SUBCOMMAND=${1:-}
+readonly SUBCOMMAND=${1:-}
 
 shift 1
 
