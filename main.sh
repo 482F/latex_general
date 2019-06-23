@@ -20,7 +20,7 @@ install(){
 }
 
 init(){
-    cp "${SCRIPT_DIR}/template.tex" "./main.tex"
+    cp -n "${SCRIPT_DIR}/template.tex" "./main.tex"
     return 0
 }
 
