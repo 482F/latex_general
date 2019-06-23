@@ -37,10 +37,12 @@ compile(){
 }
 
 case ${1:-} in
-    compile)
-        compile $@;;
     install)
         install $@;;
+    init)
+        init $@;;
+    compile)
+        compile $@;;
     *)
         usage $@;;
 esac
