@@ -27,7 +27,8 @@ init(){
 }
 
 compile(){
-    local _target_name="${1%.*}"
+    local _target_name="${1:-main}"
+    local _target_name="${_target_name%.*}"
 
     platex "${_target_name}.tex"
     dvipdfmx "${_target_name}.dvi"
