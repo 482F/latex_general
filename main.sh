@@ -20,7 +20,9 @@ install(){
 }
 
 init(){
-    cp -n "${SCRIPT_DIR}/template.tex" "./main.tex"
+    for file in ${SCRIPT_DIR}/template/*; do
+        cp -n "${file}" "./"
+    done
     return 0
 }
 
