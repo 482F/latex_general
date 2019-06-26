@@ -36,7 +36,11 @@ compile(){
     return 0
 }
 
-case ${1:-} in
+SUBCOMMAND=${1:-}
+
+shift 1
+
+case ${SUBCOMMAND} in
     install)
         install $@;;
     init)
