@@ -2,8 +2,9 @@
 
 set -ue -o pipefail
 
-SCRIPT_DIR=$(cd $(dirname "${0}"); pwd)
-SCRIPT_NAME=$(basename "${0}")
+SCRIPT_PATH=$(readlink "${0}" || (echo $(cd $(dirname "${0}"); pwd)/$(basename "${0}")))
+SCRIPT_DIR=$(dirname "${SCRIPT_PATH}")
+SCRIPT_NAME=$(basename "${SCRIPT_PATH}")
 
 usage(){
     echo "mytex subcommand"
