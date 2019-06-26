@@ -13,6 +13,10 @@ usage(){
     return 1
 }
 
+install(){
+    sudo ln -s "${SCRIPT_DIR}/${SCRIPT_NAME}" "/usr/local/bin/mytex"
+    return 0
+}
 
 compile(){
     TARGET_NAME="${1%.*}"
@@ -29,6 +33,8 @@ compile(){
 case ${1:-} in
     compile)
         compile $@;;
+    install)
+        install $@;;
     *)
         usage $@;;
 esac
