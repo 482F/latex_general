@@ -3,10 +3,9 @@
 set -ue -o pipefail
 
 SCRIPT_DIR=$(cd $(dirname "${0}"); pwd)
-TARGET_TEX="${1}"
-TARGET_DVI="${TARGET_TEX%.*}.dvi"
+TARGET_NAME="${1%.*}"
 
-platex "${TARGET_TEX}"
-dvipdfmx "${TARGET_DVI}"
+platex "${TARGET_NAME}.tex"
+dvipdfmx "${TARGET_NAME}.dvi"
 
 exit 0
