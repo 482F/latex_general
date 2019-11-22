@@ -21,8 +21,8 @@
 \newcommand{\bbracket}[1]{\bracket{[}{]}{#1}}
 \newcommand{\ebracket}[1]{\bracket{\{}{\}}{#1}}
 \newcommand{\cmat}[4][c]{\bracket{#2}{#3}{\begin{matrix*}[#1]#4\end{matrix*}}}
-\newcommand{\camat}[2][c]{\cmat{(}{)}{#1}}
-\newcommand{\cbmat}[2][c]{\cmat{[}{]}{#1}}
-\newcommand{\cemat}[2][c]{\cmat{\{}{\}}{#1}}
+\newcommand{\camat}[2][c]{\cmat[#1]{(}{)}{#2}}
+\newcommand{\cbmat}[2][c]{\cmat[#1]{[}{]}{#2}}
+\newcommand{\cemat}[2][c]{\cmat[#1]{\{}{\}}{#2}}
 \newcommand{\nint}[1]{\int^#1_{-#1}}
 \newcommand{\pint}{\nint{\pi}}
